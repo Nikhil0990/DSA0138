@@ -1,0 +1,110 @@
+//matrix addition//
+
+#include <iostream>
+using namespace std;
+int main() {
+int a[2][2] = {1,2,3,4};
+int b[2][2] = {5,6,7,8};
+int c[2][2] = {};
+int i,j;
+for(i=0;i<2;i++)
+{
+    for(j=0;j<2;j++){
+
+    c[i][j] = a[i][j]+b[i][j];
+}
+}
+for(i=0;i<2;i++)
+{
+    for(j=0;j<2;j++)
+    {
+    cout<<c[i][j]<<" ";
+}
+cout<<endl;
+}
+    return 0;
+}
+
+
+//matrix subtraction//
+
+#include <iostream>
+using namespace std;
+int main() {
+int a[2][2] = {1,2,3,4};
+int b[2][2] = {5,6,7,8};
+int c[2][2] = {};
+int i,j;
+for(i=0;i<2;i++)
+{
+    for(j=0;j<2;j++){
+
+    c[i][j] = a[i][j]-b[i][j];
+}
+}
+for(i=0;i<2;i++)
+{
+    for(j=0;j<2;j++)
+    cout<<c[i][j]<<" ";
+}
+cout<<endl;
+    return 0;
+}
+
+//matrix multiplication//
+
+#include <iostream>
+using namespace std;
+int main() {
+int a[2][2] = {5,5,5,5};
+int b[2][2] = {2,2,2,2};
+int c[2][2] = {};
+int i,j,k;
+for(i=0;i<2;i++)
+{
+    for(j=0;j<2;j++){
+        for (k=0;k<2;k++)
+
+    c[i][j] = a[i][k]*b[k][j];
+      }
+    }
+
+for(i=0;i<2;i++)
+{
+    for(j=0;j<2;j++)
+    {
+    cout<<c[i][j]<<" ";
+}
+cout<<endl;
+}
+    return 0;
+}
+
+//transpose//
+#include <iostream>
+using namespace std;
+int main() {
+int a[2][2] = {1,2,3,4};
+int b[2][2] = {5,6,7,8};
+int t [2][2] = {};
+int i,j;
+for(i=0;i<2;i++)
+{
+    for(j=0;j<2;j++){
+
+    t[i][j] = a[i][j];
+      }
+    }
+
+for(i=0;i<2;i++)
+{
+    for(j=0;j<2;j++)
+    {
+    cout<<t[i][j]<<" ";
+}
+cout<<endl;
+}
+    return 0;
+}
+
+// sum of doagonal matrix//
