@@ -1,0 +1,160 @@
+1 Write a program in C++ to find the sum of the series using the constructor overloading.
+
+Input: 9+99+999+9999+99999
+Output: 111105
+#include <iostream>
+#include <string>
+using namespace std;
+
+class SeriesSum {
+private:
+    string series;
+    int sum;
+
+public:
+    SeriesSum(string s) {
+        series = s;
+        sum = 0;
+    }
+
+    SeriesSum(string s, bool calculateImmediately) {
+        series = s;
+        sum = 0;
+        if (calculateImmediately)
+            calculateSum();
+    }
+
+    void calculateSum() {
+        int num = 0;
+        for (char c : series) {
+            if (isdigit(c)) {
+                num = num * 10 + (c - '0');
+            } else if (c == '+') {
+                sum += num;
+                num = 0;
+            }
+        }
+        sum += num;
+    }
+
+    int getSum() {
+        return sum;
+    }
+};
+
+int main() {
+    string series = "9+99+999+9999+99999";
+
+    SeriesSum seriesObj(series, true);
+
+    int sum = seriesObj.getSum();
+
+    cout << "Sum of the series: " << sum << endl;
+
+    return 0;
+}
+
+
+
+Write a C++ program to demonstrate the working of a COPY CONSTRUCTOR
+Sample input & output (P1 & P2 are objects)
+ 
+p1.x = 10, p1.y = 15
+p2.x = 10, p2.y = 15
+Testcases:
+#include <iostream>
+using namespace std;
+
+class Point {
+private:
+    int x, y;
+public:
+    Point(int xVal, int yVal) {
+        x = xVal;
+        y = yVal;
+    }
+
+    Point(const Point &obj) {
+        x = obj.x; 
+        y = obj.y; 
+    }
+
+    void display() {
+        cout << "x = " << x << ", y = " << y << endl;
+    }
+};
+
+int main() {
+    Point P1(10, 15);
+    cout << "p1: ";
+    P1.display();
+
+    Point P2 = P1;
+    cout << "p2: ";
+    P2.display();
+
+    return 0;
+}
+
+
+Create a class named Shape with a function that prints "This is a shape". Create another class named Polygon inheriting the Shape class with the same function that prints "Polygon is a shape". Create two other classes named Rectangle and Triangle having the same function which prints "Rectangle is a polygon" and "Triangle is a polygon" respectively. Again, make another class named Square having the same function which prints "Square is a rectangle".
+Now, try calling the function by the object of each of these classes.. 
+
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    void print_info() {
+        cout << "This is a shape" << endl;
+    }
+};
+
+class Polygon : public Shape {
+public:
+    void print_info() {
+        cout << "Polygon is a shape" << endl;
+    }
+};
+
+class Rectangle : public Polygon {
+public:
+    void print_info() {
+        cout << "Rectangle is a polygon" << endl;
+    }
+};
+
+class Triangle : public Polygon {
+public:
+    void print_info() {
+        cout << "Triangle is a polygon" << endl;
+    }
+};
+
+class Square : public Rectangle {
+public:
+    void print_info() {
+        cout << "Square is a rectangle" << endl;
+    }
+};
+
+int main() {
+    Shape shape;
+    shape.print_info();
+
+    Polygon polygon;
+    polygon.print_info();
+
+    Rectangle rectangle;
+    rectangle.print_info();
+
+    Triangle triangle;
+    triangle.print_info();
+
+    Square square;
+    square.print_info();
+
+    return 0;
+}
+
+
