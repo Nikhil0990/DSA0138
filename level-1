@@ -1,0 +1,118 @@
+PERFECT NUMBER
+#include <iostream>
+using namespace std;
+
+bool isPerfectNumber(int num) {
+    int sum = 0;
+    for (int i = 1; i <= num / 2; ++i) {
+        if (num % i == 0) {
+            sum += i;
+        }
+    }
+    return sum == num;
+}
+
+int main() {
+    int number;
+    cout << "Enter a number: ";
+    cin >> number;
+
+    if (isPerfectNumber(number)) {
+        cout << number << " is a perfect number." << endl;
+    } else {
+        cout << number << " is not a perfect number." << endl;
+    }
+
+    return 0;
+}
+
+
+SUM OF NUMBERS B/W 100 TO 200 AND COUNT
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int sum = 0;
+
+    for (int i = 100; i <= 200; ++i) {
+        // Check if the number is divisible by 9
+        if (i % 9 == 0) {
+            sum += i; // Add the number to the sum if it's divisible by 9
+        }
+    }
+
+    cout << "The sum of numbers between 100 and 200 that are divisible by 9 is: " << sum << endl;
+
+    return 0;
+}
+
+Give an uustroed array and element array and an element x search x in the given array write recursive c++ code this if element not present return -1
+
+
+#include <iostream>
+using namespace std;
+
+int search(int arr[], int size, int x, int index) {
+    if (index >= size) {
+        return -1;
+    }
+    if (arr[index] == x) {
+        return index;
+    }
+    return search(arr, size, x, index + 1);
+}
+
+int main() {
+    int arr[] = {3, 6, 8, 2, 10, 7};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int x;
+    cout << "Enter the element to search: ";
+    cin >> x;
+
+    int index = search(arr, size, x, 0);
+
+    if (index != -1) {
+        cout << "Element " << x << " found at index " << index << endl;
+    } else {
+        cout << "Element " << x << " not found in the array." << endl;
+    }
+
+    return 0;
+}
+
+degree having a function get degree i that print i got a degree ,if two subclass namely under gradute and post grauate in c++
+
+#include <iostream>
+using namespace std;
+
+class Degree {
+public:
+    virtual void getDegree() {
+        cout << "I got a degree." << endl;
+    }
+};
+
+class Undergraduate : public Degree {
+public:
+    void getDegree() override {
+        cout << "I got an Undergraduate degree." << endl;
+    }
+};
+
+class Postgraduate : public Degree {
+public:
+    void getDegree() override {
+        cout << "I got a Postgraduate degree." << endl;
+    }
+};
+
+int main() {
+    Undergraduate ug;
+    Postgraduate pg;
+
+    ug.getDegree();
+    pg.getDegree();
+
+    return 0;
+}
