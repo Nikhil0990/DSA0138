@@ -1,0 +1,101 @@
+vote
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age;
+    cout << "Enter your age: ";
+    cin >> age;
+
+    if (age < 18) {
+        int yearsLeft = 18 - age;
+        cout << "Sorry, you are not eligible to vote.\n";
+        cout << "You would be able to vote after " << yearsLeft << " years.\n";
+    } else {
+        cout << "Congratulations, you are eligible to vote.\n";
+    }
+
+    return 0;
+}
+
+
+constant and vowels
+
+#include <iostream>
+using namespace std;
+int main(){
+   char str[100];
+   int vowelCounter = 0, consonantCounter = 0;
+   cout << "Enter any string: ";
+   cin.getline(str, 150);
+   //'\0 represent end of string
+   for(int i = 0; str[i]!='\0'; i++) {
+      if(str[i]=='a' || str[i]=='e' || str[i]=='i' ||
+         str[i]=='o' || str[i]=='u' || str[i]=='A' ||
+         str[i]=='E' || str[i]=='I' || str[i]=='O' ||
+         str[i]=='U')
+      {
+         vowelCounter++;
+      }
+      else if((str[i]>='a'&& str[i]<='z') || (str[i]>='A'&& str[i]<='Z'))
+      {
+         consonantCounter++;
+      }
+   }
+   cout << "Vowels in String: " << vowelCounter << endl;
+   cout << "Consonants in String: " << consonantCounter << endl;
+   return 0;
+} 
+
+
+
+prime number b/w m and n
+
+#include <iostream>
+using namespace std;
+
+void findPrimesInRange(int m, int n) {
+    for (int i = m; i <= n; i++) {
+        bool isPrime = true;
+        for (int d = 2; d < i; d++) {
+            if (i % d == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime && i > 1) {
+            cout << i<< " ";
+            
+        }
+    }
+}
+
+int main() {
+    int m = 10; // Define the lower limit of the range
+    int n = 50; // Define the upper limit of the range
+    cout << "Prime numbers between " << m << " and " << n << " are: ";
+    findPrimesInRange(m, n);
+    return 0;
+}
+
+number upper case alphabets in text
+
+#include <iostream>
+using namespace std;
+
+int countUppercaseAlphabets(string text) {
+    int count = 0;
+    for (char c : text) {
+        if (c >= 'A' && c <= 'Z') {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    string text = "Sample Text With Uppercase Letters";
+    int uppercaseCount = countUppercaseAlphabets(text);
+    cout << "Number of uppercase alphabets in the text: " << uppercaseCount << endl;
+    return 0;
+} 
